@@ -71,25 +71,25 @@
             border-radius: 4px;
             font-weight: normal;
         }
-    /* 新增：商机卡片内的材料链接样式 */
+        /* 新增：商机卡片内的材料链接样式 */
     .material-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 12px;
         margin-bottom: 16px;
-        padding: 12px;
+        padding: 16px;
         background: #f0f4f8;
         border-radius: 6px;
     }
     .mat-link {
-        font-size: 12px;
+        font-size: 13px;
         color: var(--tech-blue);
         text-decoration: none;
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: 6px;
         background: #fff;
-        padding: 4px 8px;
+        padding: 8px 14px;
         border-radius: 4px;
         border: 1px solid #dce4ed;
         transition: all 0.2s;
@@ -893,8 +893,8 @@
                         <i class="fa-solid fa-robot"></i>
                     </div>
                     <div class="ai-banner-content">
-                        <strong>AI 挖掘简报：</strong> 昨日 Agent 已在后台自动完成全网科技型企业商机扫描与深度挖掘，
-                        共发现商机 24 笔，其中包括存量核心客户及您特别关注的客户 <span class="ai-banner-highlight">3</span> 位，已为您按重要度进行排序。
+                        <strong>AI 挖掘简报：</strong> 昨日 Agent 已在后台自动完成关注客户池上下游与关注园区内科技型企业商机扫描与深度挖掘，
+                        共发现商机 24 笔，其中包括核心潜在客户 <span class="ai-banner-highlight">2</span> 位，已为您按重要度进行排序。
                     </div>
                     <button class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; background: white;">
                         <i class="fa-solid fa-clock-rotate-left"></i> 查看挖掘日志
@@ -962,7 +962,7 @@
 
                 <!-- 商机卡片列表 -->
                 <div class="card-list">
-<!-- 卡片 1：固能科技 (成长期) - 50/50等宽布局 + 圆圈连线图谱 -->
+                <!-- 卡片 1：固能科技 (成长期) - 缩小版紧凑布局 -->
                 <div class="opp-card" style="border-left: 4px solid var(--rank-S);">
                     
                     <!-- 1. 卡片头部 -->
@@ -975,259 +975,378 @@
                     </div>
 
                     <!-- 2. 中段：左边属性，右边图谱 (各占一半) -->
-                    <div class="card-middle-layout">
+                    <div class="card-middle-layout" style="margin: 12px 0;">
                         
-                        <!-- 左半边：竖排企业属性 -->
-                        <div class="half-info-col">
-                            <div class="info-row">
-                                <span class="label">行业赛道</span>
-                                <span class="value">新能源 - 固态电池</span>
+                        <!-- 左半边：企业属性 (修改为一行两个) -->
+                        <div class="half-info-col" style="padding: 12px 16px; gap: 12px;">
+                            <!-- 核心改动：使用 Grid 实现一行两个 -->
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px;">
+                                <div class="info-row">
+                                    <span class="label">行业赛道</span>
+                                    <span class="value">新能源 - 固态电池</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="label">企业阶段</span>
+                                    <span class="value">初创期</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="label">行内分类</span>
+                                    <span class="value">新增客户</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="label">建议介入窗口</span>
+                                    <span class="value highlight"><i class="fa-solid fa-clock"></i> 2026年Q2</span>
+                                </div>
                             </div>
-                            <div class="info-row">
-                                <span class="label">企业阶段</span>
-                                <span class="value">初创期</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="label">行内分类</span>
-                                <span class="value">存量客户</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="label">建议介入窗口</span>
-                                <span class="value highlight"><i class="fa-solid fa-clock"></i> 2026年Q2</span>
-                            </div>
+                            
+                            <!-- 底部产品推荐占满整行 -->
                             <div class="info-row" style="margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 12px;">
                                 <span class="label">智能匹配产品</span>
                                 <span class="value highlight">科创专属贷、投贷联动、供应链金融</span>
                             </div>
-                        </div>
+                    <!-- 3. 底部：商机挖掘逻辑 (移出分栏容器外，横向铺满) -->
+                    <div class="reason-box" style="margin-bottom: 12px; padding: 10px 12px;">
+                        <strong>商机发现逻辑：</strong><br>
+                        1. <strong>上游传导：</strong> 受益于硫化物电解质国产化替代政策，原来昂贵的进口材料被相对价格较低的国产材料替代，上游原材料成本预计下降20%，降本优势将引爆下游车企旺盛需求，该企业毛利空间释放，正处于扩产前夜。<br>
+                        2. <strong>对标联动：</strong>  行业龙头“清陶能源”刚完成新一轮10亿融资，为避免产能落后导致市场份额流失，推测同技术梯队的该公司近期会有强烈的“对等扩产”融资需求。
+                    </div>
 
-                        <!-- 右半边：圆圈连线网络图谱 -->
+                    <!-- 4. 底部：材料与操作栏 (同样移出分栏，横向铺满) -->
+                    <div class="material-links" style="margin-bottom: 12px; padding: 10px; gap: 8px;">
+                        <a href="#" class="mat-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 1. 企业定位与行业全景</a>
+                        <a href="#" class="mat-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 2. 拜访话术与初步方案</a>
+                        <a href="#" class="mat-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 3. 产业链上下游图谱</a>
+                        <a href="#" class="mat-link risk-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 4. 同业失败案例复盘</a>
+                    </div>
+
+                    <div class="card-actions" style="padding-top: 10px; margin-top: 0;">
+                        <button class="btn btn-outline" onclick="openModal('modal-think')"><i class="fa-solid fa-brain" style="color:var(--tech-cyan);"></i> 查看思考过程</button>
+                        <button class="btn btn-outline" onclick="openModal('modal-confirm')"><i class="fa-solid fa-file-invoice" style="color:var(--tech-blue);"></i> 确认商机</button>
+                        <button class="btn btn-primary" onclick="openProjectAI('固能科技(B公司)')"><i class="fa-solid fa-comment-dots"></i> 深入对话分析</button>
+                    </div>
+                        </div>
+                        
+
+                        <!-- 右半边：图谱 (调小高度，自动等比缩小) -->
                         <div class="half-kg-col">
-                            <div class="kg-header-light">
-                                <i class="fa-solid fa-diagram-project"></i> 产业链传导图谱
+                            <div class="kg-header-light" style="display: flex; justify-content: space-between; align-items: center; padding: 6px 12px;">
+                                <span><i class="fa-solid fa-diagram-project"></i> 固态电池产业本体与传导图谱</span>
+                                <span style="font-size: 11px; color: #94A3B8; font-weight: normal;">节点数: 16 | 关联关系: 22</span>
                             </div>
                             
-                            <div class="kg-canvas" style="padding: 12px 16px; min-height: 260px; align-items: flex-start;">
-                                <svg viewBox="0 0 580 268" style="width:100%; height:268px; overflow:visible;" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 核心改动：min-height 降为 260px，让整个画面变扁、变小 -->
+                            <div class="kg-canvas" style="padding: 10px; min-height: 200x; height: 200px; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, #f8fafc 0%, #f1f5f9 100%); overflow: hidden;">
+                                <svg viewBox="0 0 620 420" style="width:100%; height:100%; overflow:visible;" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
-                                        <marker id="arr-gray" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
-                                            <polygon points="0 0, 7 3.5, 0 7" fill="#94A3B8"/>
-                                        </marker>
-                                        <marker id="arr-red" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
-                                            <polygon points="0 0, 7 3.5, 0 7" fill="#D0021B"/>
-                                        </marker>
+                                        <filter id="node-shadow" x="-20%" y="-20%" width="150%" height="150%">
+                                            <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#0F172A" flood-opacity="0.12"/>
+                                        </filter>
+                                        <filter id="center-shadow" x="-20%" y="-20%" width="150%" height="150%">
+                                            <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#008DDA" flood-opacity="0.25"/>
+                                        </filter>
+                                        <marker id="arr-gray" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0, 6 3, 0 6" fill="#CBD5E1"/></marker>
+                                        <marker id="arr-blue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0, 6 3, 0 6" fill="#3B82F6"/></marker>
+                                        <marker id="arr-red" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0, 6 3, 0 6" fill="#D0021B"/></marker>
                                         <style>
                                             .node-label { font-family: "Microsoft YaHei", sans-serif; }
                                             .node-icon  { font-family: "Font Awesome 6 Free"; font-weight: 900; }
+                                            .node-bg    { transition: all 0.3s ease; cursor: pointer; }
+                                            .node-bg:hover { filter: brightness(0.95); }
                                             @keyframes kg-dash { to { stroke-dashoffset: -40; } }
                                             .animated-dash { animation: kg-dash 1.5s linear infinite; }
+                                            .pulse-ring { transform-origin: center; animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1); }
+                                            @keyframes pulse { 0% { transform: scale(0.85); opacity: 0.6; } 100% { transform: scale(1.3); opacity: 0; } }
+                                            .text-stroke { stroke: white; stroke-width: 3px; paint-order: stroke fill; stroke-linejoin: round; }
                                         </style>
                                     </defs>
 
-                                    <!-- 列标题 -->
-                                    <text x="78"  y="14" text-anchor="middle" class="node-label" font-size="13" fill="#1E293B" letter-spacing="1">上游供应商</text>
-                                    <text x="295" y="14" text-anchor="middle" class="node-label" font-size="13" fill="#1E293B" letter-spacing="1">产业链中游</text>
-                                    <text x="502" y="14" text-anchor="middle" class="node-label" font-size="13" fill="#1E293B" letter-spacing="1">下游应用</text>
+                                    <!-- 连线层 -->
+                                    <g id="edges" stroke-width="1.2" fill="none">
+                                        <line x1="310" y1="210" x2="230" y2="310" stroke="#CBD5E1"/>
+                                        <line x1="310" y1="210" x2="310" y2="340" stroke="#CBD5E1"/>
+                                        <line x1="310" y1="210" x2="390" y2="310" stroke="#CBD5E1"/>
+                                        <line x1="310" y1="210" x2="440" y2="260" stroke="#CBD5E1"/>
+                                        <path d="M 100,160 Q 200,180 290,210" stroke="#94A3B8" marker-end="url(#arr-gray)"/>
+                                        <path d="M 130,280 Q 200,260 290,220" stroke="#94A3B8" marker-end="url(#arr-gray)"/>
+                                        <path d="M 130,70 Q 200,130 300,200" stroke="#D0021B" stroke-dasharray="5,3" class="animated-dash" marker-end="url(#arr-red)"/>
+                                        <line x1="60" y1="230" x2="90" y2="175" stroke="#E2E8F0" marker-end="url(#arr-gray)"/>
+                                        <line x1="220" y1="90" x2="140" y2="70" stroke="#E2E8F0" marker-end="url(#arr-gray)"/>
+                                        <path d="M 220,90 Q 270,140 305,195" stroke="#94A3B8" marker-end="url(#arr-gray)"/>
+                                        <path d="M 130,70 Q 200,40 380,100" stroke="#D0021B" stroke-width="1" stroke-dasharray="4,4" class="animated-dash"/>
+                                        <path d="M 380,100 Q 350,150 325,190" stroke="#F5A623" stroke-dasharray="3,3" marker-end="url(#arr-gray)"/>
+                                        <line x1="470" y1="140" x2="395" y2="105" stroke="#CBD5E1" marker-end="url(#arr-gray)"/>
+                                        <path d="M 330,210 Q 420,160 520,120" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+                                        <path d="M 330,210 Q 420,210 500,210" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+                                        <path d="M 330,210 Q 410,270 480,310" stroke="#94A3B8" marker-end="url(#arr-gray)"/>
+                                    </g>
+                                    <text x="130" y="30" text-anchor="middle" class="node-label text-stroke" font-size="13" font-weight="bold" fill="#D0021B">上游原材料成本预计下降20%</text>
 
-                                    <!-- ===== 连线（先画，压在节点下） ===== -->
-                                    <!-- 恩捷 → 固能（红色虚线动画） -->
-                                    <path id="policy-line" d="M 102,58 C 190,58 190,178 268,178"
-                                        stroke="#D0021B" stroke-width="2" fill="none"
-                                        stroke-dasharray="6,3" marker-end="url(#arr-red)"
-                                        class="animated-dash"/>
-                                    <text dy="-5">
-                                        <textPath href="#policy-line" startOffset="28%" text-anchor="middle"
-                                                class="node-label" font-size="10" font-weight="bold" fill="white">
-                                            <tspan>
-                                                <animate attributeName="fill" values="white;white" dur="0s" fill="freeze"/>
-                                            </tspan>
-                                        </textPath>
-                                    </text>
-                                    <rect x="0" y="0" width="0" height="0" id="policy-label-bg"/>
-                                    <text dy="-5">
-                                        <textPath href="#policy-line" startOffset="28%" text-anchor="middle"
-                                                class="node-label" font-size="10" font-weight="bold" fill="#D0021B"
-                                                stroke="white" stroke-width="3" paint-order="stroke">
-                                            政策降本20%
-                                        </textPath>
-                                    </text>
-                                    <!-- 赣锋 → 固能 -->
-                                    <path d="M 100,148 C 190,148 190,178 268,178"
-                                        stroke="#94A3B8" stroke-width="1.5" fill="none"
-                                        marker-end="url(#arr-gray)"/>
-                                    <!-- 先导 → 固能 -->
-                                    <path d="M 100,222 C 190,222 190,178 268,178"
-                                        stroke="#94A3B8" stroke-width="1.5" fill="none"
-                                        marker-end="url(#arr-gray)"/>
-                                    <!-- 固能 → 广汽/智己 -->
-                                    <path d="M 323,170 C 410,170 410,100 480,100"
-                                        stroke="#94A3B8" stroke-width="1.5" fill="none"
-                                        marker-end="url(#arr-gray)"/>
-                                    <!-- 固能 → 蔚来 -->
-                                    <path d="M 323,186 C 410,186 410,188 480,188"
-                                        stroke="#94A3B8" stroke-width="1.5" fill="none"
-                                        marker-end="url(#arr-gray)"/>
+                                    <!-- 节点层 -->
+                                    <circle cx="310" cy="210" r="46" fill="none" stroke="#008DDA" stroke-width="2" class="pulse-ring" style="transform-origin: 310px 210px;"/>
+                                    <circle cx="310" cy="210" r="38" fill="#E6F3FF" stroke="#008DDA" stroke-width="3" filter="url(#center-shadow)"/>
+                                    <text x="310" y="208" text-anchor="middle" class="node-label" font-size="13" font-weight="bold" fill="#008DDA">固能科技</text>
+                                    <rect x="278" y="235" width="64" height="16" rx="8" fill="#008DDA"/>
+                                    <text x="310" y="246" text-anchor="middle" class="node-label" font-size="9" font-weight="bold" fill="white">⭐ 目标拓客</text>
+                                    <g class="attribute-nodes" filter="url(#node-shadow)">
+                                        <circle cx="230" cy="310" r="26" fill="#FFFBEB" stroke="#FCD34D"/>
+                                        <text x="230" y="306" text-anchor="middle" class="node-label" font-size="10" font-weight="bold" fill="#78350F">产能缺口</text>
+                                        <text x="230" y="318" text-anchor="middle" class="node-label" font-size="9" fill="#92400E">5GWh</text>
+                                        <circle cx="310" cy="340" r="26" fill="#FFFBEB" stroke="#FCD34D"/>
+                                        <text x="310" y="336" text-anchor="middle" class="node-label" font-size="10" font-weight="bold" fill="#78350F">研发支出</text>
+                                        <text x="310" y="348" text-anchor="middle" class="node-label" font-size="9" fill="#D0021B">+42% 同比</text>
+                                        <circle cx="390" cy="310" r="26" fill="#FFFBEB" stroke="#FCD34D"/>
+                                        <text x="390" y="306" text-anchor="middle" class="node-label" font-size="10" font-weight="bold" fill="#78350F">专利数量</text>
+                                        <text x="390" y="318" text-anchor="middle" class="node-label" font-size="9" fill="#92400E">128项</text>
+                                        <circle cx="440" cy="260" r="26" fill="#FFFBEB" stroke="#FCD34D"/>
+                                        <text x="440" y="258" text-anchor="middle" class="node-label" font-size="10" font-weight="bold" fill="#78350F">融资进度</text>
+                                        <text x="440" y="269" text-anchor="middle" class="node-label" font-size="9" fill="#92400E">B轮对接中</text>
+                                    </g>
 
-                                    <!-- ===== 左列：上游节点 ===== -->
+                                    <!-- 上游节点 -->
+                                    <circle cx="130" cy="70" r="32" fill="#FFF1F0" stroke="#D0021B" stroke-width="2" filter="url(#node-shadow)" class="node-bg"/>
+                                    <text x="130" y="66" text-anchor="middle" class="node-icon" font-size="15" fill="#D0021B">&#xf0c3;</text>
+                                    <text x="130" y="84" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">恩捷股份</text>
+                                    <circle cx="220" cy="90" r="28" fill="#F8FAFC" stroke="#94A3B8" stroke-dasharray="3,2" filter="url(#node-shadow)" class="node-bg"/>
+                                    <text x="220" y="86" text-anchor="middle" class="node-icon" font-size="13" fill="#64748B">&#xf19c;</text>
+                                    <text x="220" y="102" text-anchor="middle" class="node-label text-stroke" font-size="10" font-weight="bold" fill="#1E293B">中科院物构所</text>
+                                    <circle cx="100" cy="160" r="30" fill="white" stroke="#94A3B8" filter="url(#node-shadow)" class="node-bg"/>
+                                    <text x="100" y="156" text-anchor="middle" class="node-icon" font-size="14" fill="#64748B">&#xf3a5;</text>
+                                    <text x="100" y="172" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">赣锋锂业</text>
+                                    <text x="100" y="183" text-anchor="middle" class="node-label" font-size="8" fill="#94A3B8">核心供应</text>
+                                    <circle cx="60" cy="230" r="22" fill="#F1F5F9" stroke="#CBD5E1" class="node-bg"/>
+                                    <text x="60" y="233" text-anchor="middle" class="node-label" font-size="10" fill="#475569">天齐锂业</text>
+                                    <circle cx="130" cy="280" r="28" fill="white" stroke="#94A3B8" filter="url(#node-shadow)" class="node-bg"/>
+                                    <text x="130" y="276" text-anchor="middle" class="node-icon" font-size="13" fill="#64748B">&#xf085;</text>
+                                    <text x="130" y="292" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">先导智能</text>
+                                    <text x="130" y="303" text-anchor="middle" class="node-label" font-size="8" fill="#94A3B8">压延设备</text>
 
-                                    <!-- 恩捷股份（政策节点） cy=58 -->
-                                  <circle cx="78" cy="58" r="22" fill="#FFF1F0" stroke="#D0021B" stroke-width="2"/>
-                                    <text x="78" y="63" text-anchor="middle" class="node-icon" font-size="14" fill="#D0021B">&#xf0c3;</text>
-                                    <text x="78" y="90" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">恩捷股份等</text>
-                                    <text x="78" y="104" text-anchor="middle" class="node-label" font-size="10" fill="#D0021B">硫化物电解质产商</text>
+                                    <!-- 中游节点 -->
+                                    <circle cx="380" cy="100" r="30" fill="#FFFDF8" stroke="#F5A623" stroke-width="2" filter="url(#node-shadow)" class="node-bg"/>
+                                    <text x="380" y="96" text-anchor="middle" class="node-icon" font-size="13" fill="#F5A623">&#xf05b;</text>
+                                    <text x="380" y="112" text-anchor="middle" class="node-label text-stroke" font-size="11" font-weight="bold" fill="#1E293B">清陶能源</text>
+                                    <text x="380" y="123" text-anchor="middle" class="node-label text-stroke" font-size="8" fill="#F5A623">龙头企业</text>
+                                    <circle cx="470" cy="140" r="22" fill="white" stroke="#CBD5E1" class="node-bg"/>
+                                    <text x="470" y="143" text-anchor="middle" class="node-label" font-size="9" font-weight="bold" fill="#1E293B">卫蓝新能源</text>
 
-                                    <!-- 赣锋锂业 cy=148 -->
-                                    <circle cx="78" cy="148" r="20" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
-                                    <text x="78" y="153" text-anchor="middle" class="node-icon" font-size="13" fill="#64748B">&#xf3a5;</text>
-                                    <text x="78" y="178" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">赣锋锂业</text>
-                                    <text x="78" y="191" text-anchor="middle" class="node-label" font-size="10" fill="#94A3B8">基础锂源供应</text>
-
-                                    <!-- 先导智能 cy=222 -->
-                                    <circle cx="78" cy="222" r="20" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
-                                    <text x="78" y="227" text-anchor="middle" class="node-icon" font-size="13" fill="#64748B">&#xf085;</text>
-                                    <text x="78" y="252" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">先导智能</text>
-                                    <text x="78" y="265" text-anchor="middle" class="node-label" font-size="10" fill="#94A3B8">压延设备供应</text>
-
-                                    <!-- ===== 中列节点 ===== -->
-
-                                    <!-- 清陶能源 cy=70 -->
-                                    <circle cx="295" cy="70" r="22" fill="#FFFDF8" stroke="#F5A623" stroke-width="2" stroke-dasharray="5,2.5"/>
-                                    <text x="295" y="75" text-anchor="middle" class="node-icon" font-size="14" fill="#F5A623">&#xf05b;</text>
-                                    <text x="295" y="103" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">清陶能源（龙头）</text>
-                                    <text x="295" y="116" text-anchor="middle" class="node-label" font-size="10" fill="#F5A623">近期获10亿融资</text>
-
-                                    <!-- 固能科技（目标，蓝色光晕） cy=178 -->
-                                    <circle cx="295" cy="178" r="32" fill="rgba(0,141,218,0.08)" stroke="rgba(0,141,218,0.2)" stroke-width="1"/>
-                                    <circle cx="295" cy="178" r="26" fill="#E6F3FF" stroke="#008DDA" stroke-width="2.5"/>
-                                    <text x="295" y="183" text-anchor="middle" class="node-icon" font-size="16" fill="#008DDA">&#xf1ad;</text>
-                                    <text x="295" y="217" text-anchor="middle" class="node-label" font-size="11.5" font-weight="bold" fill="#008DDA">固能科技 (B公司)</text>
-                                    <text x="295" y="230" text-anchor="middle" class="node-label" font-size="10" fill="#008DDA">扩产资金缺口显现</text>
-
-                                    <!-- ===== 右列：下游节点 ===== -->
-
-                                    <!-- 广汽/智己 cy=100 -->
-                                    <circle cx="502" cy="100" r="20" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
-                                    <text x="502" y="105" text-anchor="middle" class="node-icon" font-size="13" fill="#64748B">&#xf5e4;</text>
-                                    <text x="502" y="130" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">广汽 / 智己汽车</text>
-                                    <text x="502" y="143" text-anchor="middle" class="node-label" font-size="10" fill="#94A3B8">全固态实车路测应用</text>
-
-                                    <!-- 蔚来汽车 cy=188 -->
-                                    <circle cx="502" cy="188" r="20" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
-                                    <text x="502" y="193" text-anchor="middle" class="node-icon" font-size="13" fill="#64748B">&#xf5df;</text>
-                                    <text x="502" y="218" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">蔚来汽车</text>
-                                    <text x="502" y="231" text-anchor="middle" class="node-label" font-size="10" fill="#94A3B8">半固态电池包应用</text>
+                                    <!-- 下游节点 -->
+                                    <circle cx="530" cy="115" r="32" fill="white" stroke="#3B82F6" stroke-width="1.5" filter="url(#node-shadow)" class="node-bg"/>
+                                    <text x="530" y="111" text-anchor="middle" class="node-icon" font-size="14" fill="#3B82F6">&#xf5df;</text>
+                                    <text x="530" y="128" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">蔚来汽车</text>
+                                    <text x="530" y="139" text-anchor="middle" class="node-label" font-size="8" fill="#64748B">半固态装车</text>
+                                    <circle cx="515" cy="210" r="30" fill="white" stroke="#94A3B8" filter="url(#node-shadow)" class="node-bg"/>
+                                    <text x="515" y="206" text-anchor="middle" class="node-icon" font-size="13" fill="#64748B">&#xf5e4;</text>
+                                    <text x="515" y="222" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">智己汽车</text>
+                                    <text x="515" y="233" text-anchor="middle" class="node-label" font-size="8" fill="#94A3B8">路测阶段</text>
+                                    <circle cx="490" cy="310" r="26" fill="#F0FDF4" stroke="#22C55E" stroke-dasharray="2,2" filter="url(#node-shadow)" class="node-bg"/>
+                                    <text x="490" y="306" text-anchor="middle" class="node-icon" font-size="12" fill="#22C55E">&#xf5bb;</text>
+                                    <text x="490" y="321" text-anchor="middle" class="node-label" font-size="10" font-weight="bold" fill="#1E293B">亿航智能</text>
+                                    <text x="490" y="331" text-anchor="middle" class="node-label" font-size="8" fill="#16A34A">eVTOL</text>
+                                    <circle cx="560" cy="270" r="22" fill="#F1F5F9" stroke="#CBD5E1" class="node-bg"/>
+                                    <text x="560" y="268" text-anchor="middle" class="node-icon" font-size="10" fill="#64748B">&#xf10b;</text>
+                                    <text x="560" y="280" text-anchor="middle" class="node-label" font-size="9" fill="#475569">3C 电子</text>
                                 </svg>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 3. 底部：商机挖掘逻辑 -->
-                    <div class="reason-box">
-                        <strong>商机发现逻辑：</strong><br>
-                        1. <strong>上游传导：</strong> 受益于硫化物电解质国产化替代政策，上游原材料成本预计下降20%，该企业毛利空间释放，正处于扩产前夜。<br>
-                        2. <strong>对标联动：</strong> 行业龙头“清陶能源”上周刚完成新一轮10亿融资用于布局第三代产线，推测处于同技术梯队的B公司近期会有强烈的“对等扩产”融资需求。
-                    </div>
 
-                    <!-- 4. 底部：材料与操作栏 -->
-                    <div class="material-links">
-                        <a href="#" class="mat-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 1. 行业全景及关键术语.pdf</a>
-                        <a href="#" class="mat-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 2. 拜访话术与同类授信方案.pdf</a>
-                        <a href="#" class="mat-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 3. 产业链上下游本体图谱.pdf</a>
-                        <a href="#" class="mat-link risk-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 4. 同业失败案例复盘.pdf</a>
-                    </div>
-
-                    <div class="card-actions">
-                        <button class="btn btn-outline" onclick="openModal('modal-think')"><i class="fa-solid fa-brain" style="color:var(--tech-cyan);"></i> 查看思考过程</button>
-                        <button class="btn btn-outline" onclick="openModal('modal-confirm')"><i class="fa-solid fa-file-invoice" style="color:var(--tech-blue);"></i> 确认商机并生成材料</button>
-                        <button class="btn btn-primary" onclick="openProjectAI('固能科技(B公司)')"><i class="fa-solid fa-comment-dots"></i> 深入对话分析</button>
-                    </div>
                 </div>
 
                 <div style="height: 16px;"></div>
 
-                <!-- 卡片 2：智谱AI (成长期) -->
-                    <div class="opp-card" style="border-left: 4px solid var(--rank-A);">
-                        <div class="card-header">
-                            <div class="card-title-group">
-                                <div class="card-title">智谱AI</div>
-                                <div class="rank-badge rank-A">A级</div>
-                            </div>
-                            <i class="fa-solid fa-star star-icon" onclick="this.classList.toggle('active')"></i>
-                        </div>
-                        <div class="card-grid">
-                            <div class="info-item"><div class="label">行业赛道</div><div class="value">人工智能 - LLM大模型</div></div>
-                            <div class="info-item"><div class="label">企业阶段</div><div class="value">成长期</div></div>
-                            <div class="info-item"><div class="label">建议介入窗口</div><div class="value">2026年Q3</div></div>
-                            <div class="info-item"><div class="label">行内分类</div><div class="value">新增客户</div></div>
-                            <div class="info-item" style="grid-column: span 4;"><div class="label">匹配产品</div><div class="value">算力租赁融资、跨境并购贷款</div></div>
-                        </div>
+<!-- 卡片 2：智谱AI (成长期) - 采用与卡片1一致的左文右图布局 -->
+<div class="opp-card" style="border-left: 4px solid var(--rank-A);">
+    
+    <!-- 1. 卡片头部 (完全还原原有文字) -->
+    <div class="card-header" style="margin-bottom: 0;">
+        <div class="card-title-group">
+            <div class="card-title">智谱AI</div>
+            <div class="rank-badge rank-A">A级</div>
+            <div class="rank-badge rank-A">📌中关村科技园区</div>
+        </div>
+        <i class="fa-solid fa-star star-icon" onclick="this.classList.toggle('active')"></i>
+    </div>
 
-                        <!-- 【修改位置1】：基于线下链路与实控人关系的拓客逻辑 -->
-                        <div class="reason-box">
-                            <strong>商机发现逻辑：</strong><br>
-                            1. <strong>园区与人脉图谱：</strong>该企业与我行多个存量客户同属高新科技园企业园区。实际控制人曾参与我行已授信客户“X科技”的早期孵化，有较强创业背景，破冰门槛较低。<br>
-                            2. <strong>融资需求预测：</strong>在近期举办的“2024中关村AI算力生态大会”上，与“Z算力租赁公司”同台展出并签署了战略合作，存在采购算力服务的资金结算/融资需求。
-                        </div>
-                        <div class="material-links">
-                            <a href="path/to/file4.pdf" class="mat-link" download>
-                                <span class="ctx-file-icon" style="color:#EF4444;"><i class="fa-solid fa-file-pdf"></i></span> 
-                                1. 行业全景及关键术语.pdf
-                            </a>
-                            <a href="path/to/file5.pdf" class="mat-link" download>
-                                <span class="ctx-file-icon" style="color:#EF4444;"><i class="fa-solid fa-file-pdf"></i></span> 
-                                2. 拜访话术与同类授信方案.pdf
-                            </a>
-                            <a href="path/to/file6.pdf" class="mat-link" download>
-                                <span class="ctx-file-icon" style="color:#EF4444;"><i class="fa-solid fa-file-pdf"></i></span> 
-                                3. 产业园区本体图谱.pdf
-                            </a>
-                            <a href="path/to/file3.pdf" class="mat-link risk-link" download>
-                                <span class="ctx-file-icon" style="color:#EF4444;"><i class="fa-solid fa-file-pdf"></i></span> 
-                                4. 同业失败案例复盘.pdf
-                            </a>
-                        </div>
-
-                        <div class="card-actions" style="margin-top: 16px;">
-                            <button class="btn btn-primary" onclick="openProjectAI('智谱AI')"><i class="fa-solid fa-comment-dots"></i> 深入对话分析</button>
-                        </div>
-                    </div>
-
-                    <div style="height: 16px;"></div>
-                    <!-- 卡片 3：大疆创新 (成熟期) -->
-                    <div class="opp-card" style="border-left: 4px solid var(--rank-A);">
-                        <div class="card-header">
-                            <div class="card-title-group">
-                                <div class="card-title">大疆创新</div>
-                                <div class="rank-badge rank-A">A级</div>
-                            </div>
-                            <i class="fa-solid fa-star star-icon" onclick="this.classList.toggle('active')"></i>
-                        </div>
-                        <div class="card-grid">
-                            <div class="info-item"><div class="label">行业赛道</div><div class="value">低空经济 - 无人机/eVTOL</div></div>
-                            <div class="info-item"><div class="label">企业阶段</div><div class="value">成熟期 (行业龙头)</div></div>
-                            <div class="info-item"><div class="label">建议介入窗口</div><div class="value">本月</div></div>
-                            <div class="info-item"><div class="label">行内分类</div><div class="value">存量核心客户</div></div>
-                            <div class="info-item" style="grid-column: span 4;"><div class="label">匹配产品</div><div class="value">跨境资金池结算、上下游供应链票据</div></div>
-                        </div>
-
-                        <!-- 拓客逻辑修改 -->
-                        <div class="reason-box">
-                            <strong>商机发现逻辑：</strong><br>
-                            1. <strong>下游变动：</strong>民航局发布eVTOL型号合格审定政策，下游城市空中交通试点激增，直接导致大疆上游碳纤维、电机供应商订单量环比上涨300%。<br>
-                            2. <strong>策略推测：</strong>作为核心企业，大疆正通过延长账期缓解扩产压力，上游中小微供应商资金缺口巨大，是本行推广“核心企业信用背书+票据贴现”业务的绝佳时机。
-                        </div>
-
-                        <!-- 新增：材料预览/下载区 -->
-                        <div class="material-links">
-                            <a href="#" class="mat-link"><i class="fa-solid fa-book-open"></i> 1.行业百科：低空经济政策演进与eVTOL关键零部件拆解</a>
-                            <a href="#" class="mat-link"><i class="fa-solid fa-file-invoice-dollar"></i> 2.营销实战：针对龙头供应商的“批量保理”产品话术与案例</a>
-                        </div>
-
-                        <div class="card-actions">
-                            <button class="btn btn-primary" onclick="openProjectAI('大疆创新')"><i class="fa-solid fa-comment-dots"></i> 深入对话分析</button>
-                        </div>
-                    </div>
+    <!-- 2. 中段：左边属性+逻辑+操作，右边图谱 (各占一半) -->
+    <div class="card-middle-layout" style="margin: 12px 0;">
+        
+        <!-- ================= 左半边：信息流 ================= -->
+        <div class="half-info-col" style="padding: 12px 16px; gap: 12px;">
+            
+            <!-- 基础信息区 (完全还原原有属性，采用 1fr 1fr 网格布局) -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px;">
+                <div class="info-row">
+                    <span class="label">行业赛道</span>
+                    <span class="value">人工智能 - LLM大模型</span>
                 </div>
+                <div class="info-row">
+                    <span class="label">企业阶段</span>
+                    <span class="value">成长期</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">行内分类</span>
+                    <span class="value">新增客户</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">建议介入窗口</span>
+                    <span class="value highlight"><i class="fa-solid fa-clock"></i> 2026年Q2</span>
+                </div>
+            </div>
+            
+            <!-- 底部产品推荐占满整行 (完全还原原有文字) -->
+            <div class="info-row" style="margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 12px;">
+                <span class="label">智能匹配产品</span>
+                <span class="value highlight">算力租赁融资</span>
+            </div>
+
+            <!-- 底部：商机挖掘逻辑与材料栏 (结构仿照卡片1移至左侧) -->
+            <div class="reason-box" style="margin-bottom: 12px; padding: 10px 12px;">
+                <strong>商机发现逻辑：</strong><br>
+                1. <strong>园区图谱：</strong> 该企业与我行其他存量客户同属高新科技园企业园区，实际控制人层参与我行授信客户“X科技”早期孵化，有较强创业背景，且容易触达。<br>
+                2. <strong>融资需求预测：</strong> 在近期举办的“2026中关村AI算力生态大会”上，与“Z算力租赁公司”同台展出并签署了战略合作，存在采购算力服务的融资需求。
+            </div>
+
+            <div class="material-links" style="margin-bottom: 12px; padding: 10px; gap: 8px;">
+                        <a href="#" class="mat-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 1. 企业定位与行业全景</a>
+                        <a href="#" class="mat-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 2. 拜访话术与初步方案</a>
+                        <a href="#" class="mat-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 3. 园区企业集群图谱</a>
+                        <a href="#" class="mat-link risk-link"><i class="fa-solid fa-file-pdf" style="color:#EF4444;"></i> 4. 同业失败案例复盘</a>
+            </div>
+
+            <div class="card-actions" style="padding-top: 10px; margin-top: 0;">
+                <button class="btn btn-outline" onclick="openModal('modal-think')"><i class="fa-solid fa-brain" style="color:var(--tech-cyan);"></i> 查看思考过程</button>
+                <button class="btn btn-outline" onclick="openModal('modal-confirm')"><i class="fa-solid fa-file-invoice" style="color:var(--tech-blue);"></i> 确认商机</button>
+                <button class="btn btn-primary" onclick="openProjectAI('智谱AI')"><i class="fa-solid fa-comment-dots"></i> 深入对话分析</button>
+            </div>
+        </div>
+        
+
+        <!-- ================= 右半边：图谱区 ================= -->
+        <div class="half-kg-col">
+            <div class="kg-header-light" style="display: flex; justify-content: space-between; align-items: center; padding: 6px 12px;">
+                <span><i class="fa-solid fa-map-location-dot"></i> 中关村科技园 · 产业空间与获客散点图</span>
+                <span style="font-size: 11px; color: #94A3B8; font-weight: normal;">已授信: 2 | 战略合作: 1 | 潜在: 4</span>
+            </div>
+            
+            <div class="kg-canvas" style="padding: 10px; min-height: 200px; height: auto; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, #f8fafc 0%, #f1f5f9 100%); overflow: hidden;">
+                <svg viewBox="0 0 620 420" style="width:100%; height:100%; overflow:visible;" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="node-shadow-2" x="-20%" y="-20%" width="150%" height="150%">
+                            <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#0F172A" flood-opacity="0.12"/>
+                        </filter>
+                        <filter id="center-shadow-2" x="-20%" y="-20%" width="150%" height="150%">
+                            <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#008DDA" flood-opacity="0.25"/>
+                        </filter>
+                        <marker id="arr-gray-2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0, 6 3, 0 6" fill="#CBD5E1"/></marker>
+                        <marker id="arr-blue-2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0, 6 3, 0 6" fill="#3B82F6"/></marker>
+                        <marker id="arr-orange-2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0, 6 3, 0 6" fill="#F5A623"/></marker>
+                    </defs>
+
+                    <!-- 1. 空间集群背景（体现园区内的不同地理板块） -->
+                    <!-- 左侧：大模型集群区 -->
+                    <rect x="20" y="30" width="220" height="360" rx="16" fill="rgba(241, 245, 249, 0.5)" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8,4" />
+                    <text x="130" y="55" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" letter-spacing="1">园区西区: 大模型研发集群</text>
+                    
+                    <!-- 右侧：算力集群区 -->
+                    <rect x="380" y="30" width="220" height="360" rx="16" fill="rgba(241, 245, 249, 0.5)" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8,4" />
+                    <text x="490" y="55" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B" letter-spacing="1">上地区: 算力基础设施集群</text>
+
+                    <!-- 2. 连线层 -->
+                    <g id="edges-2" stroke-width="1.5" fill="none">
+                        <!-- 中心实控人关联线 (蓝线动效) -->
+                        <path id="path-xtech" d="M 160,150 Q 230,150 265,190" stroke="#008DDA" stroke-dasharray="5,3" class="animated-dash" marker-end="url(#arr-blue-2)"/>
+                        <text dy="-6"><textPath href="#path-xtech" startOffset="40%" text-anchor="middle" font-size="10" font-weight="bold" fill="#008DDA" class="text-stroke">清华校友圈引荐</textPath></text>
+
+                        <!-- 中心算力合作线 (橙色动效) -->
+                        <path id="path-zpower" d="M 355,190 Q 370,150 440,150" stroke="#F5A623" stroke-dasharray="5,3" class="animated-dash" marker-end="url(#arr-orange-2)"/>
+                        <text dy="-6">
+                            <textPath href="#path-zpower" startOffset="40%" text-anchor="middle" font-size="10" font-weight="bold" fill="#F5A623" class="text-stroke">
+                                采购算力
+                            </textPath>
+                        </text>
+
+                        <!-- 其他关联灰线 -->
+                        <path d="M 110,270 Q 180,240 270,225" stroke="#E2E8F0" marker-end="url(#arr-gray-2)"/>
+                        <path d="M 180,320 Q 230,280 280,240" stroke="#E2E8F0" marker-end="url(#arr-gray-2)"/>
+                        <path d="M 440,280 Q 380,250 350,230" stroke="#E2E8F0" marker-end="url(#arr-gray-2)"/>
+                        
+                        <!-- 属性连线 -->
+                        <line x1="310" y1="210" x2="230" y2="310" stroke="#CBD5E1"/>
+                        <line x1="310" y1="210" x2="310" y2="340" stroke="#CBD5E1"/>
+                        <line x1="310" y1="210" x2="390" y2="310" stroke="#CBD5E1"/>
+                    </g>
+
+                    <!-- 3. 中心目标节点：智谱AI (跨越两个集群地带) -->
+                    <circle cx="310" cy="210" r="46" fill="none" stroke="#008DDA" stroke-width="2" class="pulse-ring" style="transform-origin: 310px 210px;"/>
+                    <circle cx="310" cy="210" r="38" fill="#E6F3FF" stroke="#008DDA" stroke-width="3" filter="url(#center-shadow-2)"/>
+                    <text x="310" y="206" text-anchor="middle" class="node-label" font-size="13" font-weight="bold" fill="#008DDA">智谱AI</text>
+                    <text x="310" y="222" text-anchor="middle" class="node-icon" font-size="12" fill="#008DDA">&#xf544;</text>
+                    <rect x="278" y="235" width="64" height="16" rx="8" fill="#008DDA"/>
+                    <text x="310" y="246" text-anchor="middle" class="node-label" font-size="9" font-weight="bold" fill="white">⭐ 目标拓客</text>
+
+                    <!-- ★将"增加复杂度"的要求落地在右侧图谱中：新增属性雷达节点★ -->
+                    <g class="attribute-nodes" filter="url(#node-shadow-2)">
+                        <circle cx="230" cy="310" r="26" fill="#FFFBEB" stroke="#FCD34D"/>
+                        <text x="230" y="306" text-anchor="middle" class="node-label" font-size="10" font-weight="bold" fill="#78350F">融资轮次</text>
+                        <text x="230" y="318" text-anchor="middle" class="node-label" font-size="9" fill="#92400E">C轮后</text>
+                        
+                        <circle cx="310" cy="340" r="26" fill="#FFFBEB" stroke="#FCD34D"/>
+                        <text x="310" y="336" text-anchor="middle" class="node-label" font-size="10" font-weight="bold" fill="#78350F">算力缺口</text>
+                        <text x="310" y="348" text-anchor="middle" class="node-label" font-size="9" fill="#D0021B">约 500P</text>
+                        
+                        <circle cx="390" cy="310" r="26" fill="#FFFBEB" stroke="#FCD34D"/>
+                        <text x="390" y="306" text-anchor="middle" class="node-label" font-size="10" font-weight="bold" fill="#78350F">年算力支出</text>
+                        <text x="390" y="318" text-anchor="middle" class="node-label" font-size="9" fill="#92400E">超 4 亿元</text>
+                    </g>
+
+                    <!-- 4. 左侧节点分布 (大模型集群) -->
+                    <!-- 已获客节点 (高亮蓝底) -->
+                    <circle cx="130" cy="150" r="32" fill="#F0F9FF" stroke="#008DDA" stroke-width="2" filter="url(#node-shadow-2)" class="node-bg"/>
+                    <text x="130" y="146" text-anchor="middle" class="node-icon" font-size="15" fill="#008DDA">&#xf19c;</text>
+                    <text x="130" y="164" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">X科技</text>
+                    <rect x="100" y="172" width="60" height="14" rx="4" fill="#008DDA"/>
+                    <text x="130" y="182" text-anchor="middle" class="node-label" font-size="9" fill="white">✓ 我行已授信</text>
+
+                    <!-- 潜在节点 (灰底) -->
+                    <circle cx="100" cy="260" r="28" fill="white" stroke="#94A3B8" filter="url(#node-shadow-2)" class="node-bg"/>
+                    <text x="100" y="256" text-anchor="middle" class="node-icon" font-size="13" fill="#64748B">&#xf544;</text>
+                    <text x="100" y="272" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">百川AI</text>
+                    <text x="100" y="284" text-anchor="middle" class="node-label" font-size="9" fill="#94A3B8">潜在客户</text>
+
+                    <circle cx="180" cy="320" r="26" fill="white" stroke="#94A3B8" filter="url(#node-shadow-2)" class="node-bg"/>
+                    <text x="180" y="318" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">月之暗面</text>
+                    <text x="180" y="332" text-anchor="middle" class="node-label" font-size="9" fill="#94A3B8">潜在客户</text>
+
+                    <!-- 5. 右侧节点分布 (算力集群) -->
+                    <!-- 战略合作节点 (橙底) -->
+                    <circle cx="470" cy="150" r="32" fill="#FFFDF8" stroke="#F5A623" stroke-width="2" stroke-dasharray="4,2" filter="url(#node-shadow-2)" class="node-bg"/>
+                    <text x="470" y="146" text-anchor="middle" class="node-icon" font-size="15" fill="#F5A623">&#xf233;</text>
+                    <text x="470" y="164" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">Z算力租赁</text>
+                    <rect x="435" y="172" width="70" height="14" rx="4" fill="#F5A623"/>
+                    <text x="470" y="182" text-anchor="middle" class="node-label" font-size="9" fill="white">🤝 我行战略合作</text>
+
+                    <!-- 已获客节点 (高亮蓝底) -->
+                    <circle cx="470" cy="270" r="30" fill="#F0F9FF" stroke="#008DDA" stroke-width="2" filter="url(#node-shadow-2)" class="node-bg"/>
+                    <text x="470" y="266" text-anchor="middle" class="node-icon" font-size="14" fill="#008DDA">&#xf0c2;</text>
+                    <text x="470" y="282" text-anchor="middle" class="node-label" font-size="11" font-weight="bold" fill="#1E293B">Y云计算</text>
+                    <rect x="440" y="290" width="60" height="14" rx="4" fill="#008DDA"/>
+                    <text x="470" y="300" text-anchor="middle" class="node-label" font-size="9" fill="white">✓ 我行已授信</text>
+
+                    <!-- 潜在节点 (灰底) -->
+                    <circle cx="550" cy="100" r="24" fill="#F1F5F9" stroke="#CBD5E1" class="node-bg"/>
+                    <text x="550" y="98" text-anchor="middle" class="node-icon" font-size="10" fill="#64748B">&#xf2db;</text>
+                    <text x="550" y="112" text-anchor="middle" class="node-label" font-size="10" fill="#475569">寒武纪</text>
+
+                    <circle cx="560" cy="330" r="24" fill="#F1F5F9" stroke="#CBD5E1" class="node-bg"/>
+                    <text x="560" y="328" text-anchor="middle" class="node-icon" font-size="10" fill="#64748B">&#xf1c0;</text>
+                    <text x="560" y="342" text-anchor="middle" class="node-label" font-size="10" fill="#475569">某IDC</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <!-- ================= 新增页面：客户管理 Tab ================= -->
         <div id="page-clients" class="page">
@@ -1547,7 +1666,7 @@
                         <!-- 右侧原有按钮保持不变 -->
                         <div style="display: flex; gap: 12px;">
                             <button class="btn btn-outline" onclick="closeModal('modal-think')">关闭</button>
-                            <button class="btn btn-primary" onclick="closeModal('modal-think'); openModal('modal-confirm');">下一步：确认商机并生成材料</button>
+                            <button class="btn btn-primary" onclick="closeModal('modal-think'); openModal('modal-confirm');">下一步：确认商机</button>
                         </div>
                     </div>
         </div>
@@ -1558,7 +1677,7 @@
     <div id="modal-confirm" class="modal-overlay">
         <div class="modal-box" style="width: 700px;">
             <div class="modal-header">
-                <span><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--tech-blue);"></i> 确认商机与营销材料配置</span>
+                <span><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--tech-blue);"></i> 确认商机</span>
                 <i class="fa-solid fa-xmark" onclick="closeConfirmModal()"></i>
             </div>
             
